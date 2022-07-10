@@ -2,7 +2,8 @@ package numeric.palindrome;
 
 public class NumericPalindrome {
 
-    public boolean isPalindrome(int x) {
+    //converting to string
+    public boolean isPalindrome1(int x) {
         if (x < 0) {
             return false;
         }
@@ -23,6 +24,26 @@ public class NumericPalindrome {
         }
 
         return false;
+
+    }
+
+
+    //no data conversion - using mod, division and multiply
+    public boolean isPalindrome(int x) {
+        if (x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+
+        int reversedNumber = 0;
+        int temp = x;
+
+        while(temp > 0) {
+            reversedNumber = reversedNumber * 10 + temp%10;
+            temp /= 10;
+        }
+
+
+        return reversedNumber == x;
 
     }
 }
